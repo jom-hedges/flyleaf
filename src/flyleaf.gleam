@@ -1,20 +1,17 @@
-import gleam/io
+import gleam/dynamic
+import gleam/int
+import gleam/list
 import lustre
 import lustre/attribute
+import lustre/effect
 import lustre/element
 import lustre/element/html
+import lustre/event
+import lustre_http
 import lustre/ui
 
-pub fn main() {
-  let styles = [#("width", "100vw"), #("height", "100vh"), #("padding", "1rem")]
-  let app = 
-    lustre.element(ui.centre(
-      [attribute.style(styles)],
-      html.div([], [
-        html.h1([], [element.text("Flyleaf")]),
-        html.h2([], [element.text("a design-first engineering studio.")]),
-      ]),
-    ))
+pub fn main() 
+  let app = lustre.application(init, update, view)
   let assert Ok(_) = lustre,start(app, "#app", Nil)
 
   Nil
