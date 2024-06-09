@@ -19,7 +19,7 @@ import modem
 
 pub fn main() { 
   let app = lustre.application(init, update, view)
-  let assert Ok(_) = lustre,start(app, "#app", Nil)
+  let assert Ok(_) = lustre.start(app, "#app", Nil)
 }
 
 // MODEL ----------------------------------------------------------------------
@@ -43,8 +43,8 @@ fn init(_flags) -> #(Model, Effect(Msg)) {
     Model(
       current_route: Home,
       guests: [
-        Guest(slug: "your", name:"reader"),
-        Guest(slug: "anonymous", name:"viewer"),
+        Guest(slug: "anonymous", name: "Anonymous"),
+        Guest(slug: "reader", name: "Reader"), 
       ],
       new_guest_name: "",
     ),
@@ -52,3 +52,11 @@ fn init(_flags) -> #(Model, Effect(Msg)) {
   )
 }
 
+fn on_route_change(uri: Uri) -> Msg {
+  case uri.path_segments(uri.path) {
+    ["welcome", guest] -> OnRouteChange[WelcomeGuest(guest)]
+    _ -> OnRouteChange(Home)
+  }
+}
+
+// UPDATE ------------------------------------------------------------------------
