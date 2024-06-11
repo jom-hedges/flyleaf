@@ -54,7 +54,7 @@ fn init(_flags) -> #(Model, Effect(Msg)) {
 
 fn on_route_change(uri: Uri) -> Msg {
   case uri.path_segments(uri.path) {
-    ["welcome", guest] -> OnRouteChange(WelcomeGuest(guest))
+    ["welcome", guest] -> OnRouteChange(Welcome(guest))
     _ -> OnRouteChange(Home)
   }
 }
@@ -95,7 +95,7 @@ fn view(model: Model) -> Element(Msg) {
 
   let page = case model.current_route {
     Home -> view_home(model)
-    WelcomeGuest(name) -> view_welcome(model, name)
+    Welcome(name) -> view_welcome(model, name)
   }
 
   ui.stack([attribute.style(styles)], [view_nav(model), page])
@@ -167,5 +167,5 @@ fn view_body(children) {
 }
 
 fn view_title(text) {
-  html.h1([cn.text_xl()], [element.text)])
+  html.h1([cn.text_xl()], [element.text(text)])
 }
