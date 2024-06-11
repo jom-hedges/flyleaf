@@ -30,7 +30,6 @@ type Model {
 
 type Route {
   Home
-  About
   Welcome(value: String)
 }
 
