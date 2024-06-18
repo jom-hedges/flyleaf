@@ -25,7 +25,9 @@ packages = [
   { name = "gramps", version = "2.0.1", build_tools = ["gleam"], requirements = ["gleam_crypto", "gleam_erlang", "gleam_http", "gleam_stdlib"], otp_app = "gramps", source = "hex", outer_checksum = "FBB7EA641C8A1EF02C0E938B6045A1360B925E5E65BAD0E228C4AEF6C6933722" },
   { name = "hpack_erl", version = "0.3.0", build_tools = ["rebar3"], requirements = [], otp_app = "hpack", source = "hex", outer_checksum = "D6137D7079169D8C485C6962DFE261AF5B9EF60FBC557344511C1E65E3D95FB0" },
   { name = "logging", version = "1.1.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "logging", source = "hex", outer_checksum = "A996064F04EF6E67F0668FD0ACFB309830B05D0EE3A0C11BBBD2D4464334F792" },
+  { name = "lustre", version = "4.2.6", build_tools = ["gleam"], requirements = ["gleam_erlang", "gleam_json", "gleam_otp", "gleam_stdlib"], otp_app = "lustre", source = "hex", outer_checksum = "9ABD71D63F4B8F362CB824DED2C4CA64895DEFACD8F22B0FF055BF15241B1AE2" },
   { name = "lustre_dev_tools", version = "1.3.2", build_tools = ["gleam"], requirements = ["argv", "filepath", "fs", "gleam_community_ansi", "gleam_erlang", "gleam_http", "gleam_httpc", "gleam_json", "gleam_otp", "gleam_package_interface", "gleam_stdlib", "glint", "glisten", "mist", "simplifile", "spinner", "term_size", "tom", "wisp"], otp_app = "lustre_dev_tools", source = "hex", outer_checksum = "CC8F46BCE51C1349862C5F6BA0075B0C68096B866ED1C520B60358FAAB398B60" },
+  { name = "lustre_ui", version = "0.6.0", build_tools = ["gleam"], requirements = ["gleam_community_colour", "gleam_json", "gleam_stdlib", "lustre"], otp_app = "lustre_ui", source = "hex", outer_checksum = "FA1F9E89D89CDD5DF376ED86ABA8A38441CB2E664CD4D402F22A49DA4D7BB56D" },
   { name = "marceau", version = "1.2.0", build_tools = ["gleam"], requirements = [], otp_app = "marceau", source = "hex", outer_checksum = "5188D643C181EE350D8A20A3BDBD63AF7B6C505DE333CFBE05EF642ADD88A59B" },
   { name = "mist", version = "1.2.0", build_tools = ["gleam"], requirements = ["birl", "gleam_erlang", "gleam_http", "gleam_otp", "gleam_stdlib", "glisten", "gramps", "hpack_erl", "logging"], otp_app = "mist", source = "hex", outer_checksum = "109B4D64E68C104CC23BB3CC5441ECD479DD7444889DA01113B75C6AF0F0E17B" },
   { name = "nakai", version = "0.11.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "nakai", source = "hex", outer_checksum = "4121B3F76FA4326C77DC9B94DD41FD4BDC8DC43C603F7A8AA630B8D95B9A2850" },
@@ -44,10 +46,12 @@ packages = [
 [requirements]
 glailglind = { version = "~> 1.1" }
 gleam_erlang = { version = "~> 0.25" }
-gleam_http = { version = "~> 3.6"}
+gleam_http = { version = "~> 3.6" }
 gleam_stdlib = { version = "~> 0.34 or ~> 1.2" }
 gleeunit = { version = "~> 1.0" }
+lustre = { version = ">= 4.2.6 and < 5.0.0" }
 lustre_dev_tools = { version = ">= 1.3.2 and < 2.0.0" }
+lustre_ui = { version = ">= 0.6.0 and < 1.0.0"}
 mist = { version = "~> 1.2" }
 nakai = { version = "~> 0.11" }
 wisp = { version = "~> 0.14" }
